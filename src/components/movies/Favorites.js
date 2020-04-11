@@ -1,17 +1,17 @@
 import React, { useContext }from "react";
-
+import MovieCard from "./MovieCard";
 
 import { GlobalContext } from "../../context/GlobalState";
 
 const Favorites = () => {
     const { favorites } = useContext(GlobalContext);
-    console.log(favorites);
+
     return (
 
         <div>
 
-            {favorites.map((favorite) => (
-                <div key={favorite.id}>{favorite.text} </div>
+            {favorites.map((favoriteMovie) => (
+                <MovieCard movie={favoriteMovie} key={favoriteMovie.id}/>
             ))}
         </div>
     );

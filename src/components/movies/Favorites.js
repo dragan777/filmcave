@@ -8,11 +8,13 @@ const Favorites = () => {
 
     return (
 
-        <div>
+        <div className='container'>
+            <div className='row'>
 
             {favorites.map((favoriteMovie) => (
                 <MovieCard movie={favoriteMovie} key={favoriteMovie.id}/>
             ))}
+            </div>
         </div>
     );
 };

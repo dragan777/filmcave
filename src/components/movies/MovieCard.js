@@ -35,23 +35,23 @@ const MovieCard = ({ movie }) => {
     },[favorite]);
 
     return (
-        <div className="col-3">
-        <div className="card">
-            <button onClick={onFavClick} className={favoriteList.includes(movie.id) ? "btn btn-danger" : "btn btn-success"}>Add to fav{favoriteList.length}</button>
-            <img src={`http://image.tmdb.org/t/p/w200//${movie.poster_path}`} className="card-img-top" alt={movie.title}/>
-            <div className="card-header">
-                {movie.title}
+        <div className='col-3 mb-3'>
+        <div className="card card-cascade wider">
+            <div className="view view-cascade overlay">
+                <img className="card-img-top" src={`http://image.tmdb.org/t/p/w200//${movie.backdrop_path}`} alt="Card image cap"/>
+                    <a href="#!">
+                        <div className="mask rgba-white-slight"></div>
+                    </a>
             </div>
-            <div className="card-body">
-                <blockquote className="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer className="blockquote-footer">Someone famous in <cite title="Source Title">Source
-                        Title</cite></footer>
-                </blockquote>
+            <div className="card-body card-body-cascade text-center pb-0">
+                <h4 className="card-title"><strong>{movie.title}</strong></h4>
+                {/*<p className="card-text">{movie.overview}</p>*/}
+                <i className={favoriteList.includes(movie.id) ? "fas fa-star" : "far fa-star"} onClick={onFavClick} ></i>
+
             </div>
         </div>
         </div>
-    );
+        );
 };
 
 

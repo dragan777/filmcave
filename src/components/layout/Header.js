@@ -1,19 +1,23 @@
-import React from "react";
 import logo from '../../logo.svg';
+import React, { useState }  from "react"
 import {
 
     Link
 } from "react-router-dom";
 const Header = (props) => {
+    const [toggle, setToggle] = useState(false);
+    const onClick = () =>{
+        setToggle(!toggle);
+    };
     return (
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
             <div className='container'>
             <a class="navbar-brand" href="#">FILMCAVE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-                    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <button onClick={onClick} class="navbar-toggler" type="button" data-toggle="collapse"
+                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <div className={toggle ? "collapse navbar-collapse show" : "collapse navbar-collapse"}>
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <Link class="nav-link" to="/">Search

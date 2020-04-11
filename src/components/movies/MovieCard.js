@@ -61,10 +61,10 @@ const MovieCard = ({ movie }) => {
     },[inWatchList]);
 
     return (
-        <div className='col-3 mb-3'>
+        <div className='col-12 col-sm-6 col-md-4 col-lg-3 mb-3 pb-2'>
         <div className="card card-cascade wider">
             <div className="view view-cascade overlay">
-                <img className="card-img-top" src={`http://image.tmdb.org/t/p/w200//${movie.backdrop_path}`} alt="Card image cap"/>
+                <img className="card-img-top" src={movie.backdrop_path ? `http://image.tmdb.org/t/p/w200//${movie.backdrop_path}` : process.env.PUBLIC_URL + '/placeholder.jpg'} />
                     <a href="#!">
                         <div className="mask rgba-white-slight"></div>
                     </a>
@@ -75,6 +75,9 @@ const MovieCard = ({ movie }) => {
                 <i className={favoriteList.includes(movie.id) ? "fas fa-star" : "far fa-star"} onClick={onFavClick} ></i>
                 <i className={watchListTmp.includes(movie.id) ? "fas fa-clock" : "far fa-clock"} onClick={onClockClick} ></i>
 
+            </div>
+            <div className="card-footer text-muted text-center mt-4">
+                <i className="fas fa-thumbs-up"></i>{movie.vote_count}
             </div>
         </div>
         </div>

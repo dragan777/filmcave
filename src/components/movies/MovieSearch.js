@@ -48,14 +48,14 @@ const MovieSearch = (props) => {
             <div className='cyan lighten-5 text-center'>
                 <div className='container'>
 
-                    <div className="md-form mr-auto">
+                    <div className="md-form mr-auto my-0">
                         <div className="row">
-                            <div className='col-10'>
+                            <div className='col-12 col-md-10'>
                                 <input className="form-control form-control-lg mr-sm-2 display-1" type="text" placeholder="Search"
                                        aria-label="Search" onKeyDown={onKeyDown} value={tmpQuery} onChange={onChange}/>
                             </div>
                             <div className='col-2'>
-                                <button className="btn aqua-gradient btn-rounded" type="button"
+                                <button className="btn aqua-gradient btn-rounded d-none d-sm-block" type="button"
                                         onClick={submitSearch}>Search
                                 </button>
                             </div>

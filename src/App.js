@@ -4,6 +4,7 @@ import './App.css';
 import Header from "./components/layout/Header";
 import MovieSearch from "./components/movies/MovieSearch";
 import Favorites from "./components/movies/Favorites";
+import WatchList from "./components/movies/WatchList";
 import {GlobalProvider} from "./context/GlobalState";
 import {
     BrowserRouter as Router,
@@ -22,7 +23,9 @@ function App() {
                         <Route path="/favorites">
                             <Favorites/>
                         </Route>
-
+                        <Route path="/watchlist">
+                            <WatchList/>
+                        </Route>
                         <Route path="/">
                             <MovieSearch/>
                         </Route>

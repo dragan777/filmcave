@@ -7,25 +7,46 @@ const MovieCard = ({ movie }) => {
 
     const { addFavorite } = useContext(GlobalContext);
     const { removeFavorite } = useContext(GlobalContext);
+
+    const { addToWatchList } = useContext(GlobalContext);
+    const { removeFromWatchList } = useContext(GlobalContext);
+
     const { favorites } = useContext(GlobalContext);
+    const { watchList } = useContext(GlobalContext);
+
     const [ favorite, setFavorite] = useState(false);
+    const [ inWatchList, setInWatchList] = useState(false);
+
     const [ favoriteList, setFavoriteList] = useState([]);
-    console.log(favorites);
+    const [ watchListTmp, setWatchListTmp] = useState([]);
+
     const onFavClick = (e) => {
         e.preventDefault();
         const newFavorite = movie;
         if(favoriteList.includes(movie.id)){
             removeFavorite(movie.id);
             favoriteList.splice(favoriteList.indexOf(movie.id), 1);
-
             setFavorite(false);
         }else{
             addFavorite(newFavorite);
             favoriteList.push(movie.id);
             setFavorite(true)
         }
+    };
 
 
+    const onClockClick = (e) => {
+        e.preventDefault();
+        const newInWatchList = movie;
+        if(watchListTmp.includes(movie.id)){
+            removeFromWatchList(movie.id);
+            watchListTmp.splice(watchListTmp.indexOf(movie.id), 1);
+            setInWatchList(false);
+        }else{
+            addToWatchList(newInWatchList);
+            watchListTmp.push(movie.id);
+            setInWatchList(true);
+        }
     };
 
     useEffect(()=>{
@@ -33,6 +54,11 @@ const MovieCard = ({ movie }) => {
         setFavoriteList(result);
 
     },[favorite]);
+
+    useEffect(()=>{
+        const result = watchList.map(a => a.id);
+        setWatchListTmp(result);
+    },[inWatchList]);
 
     return (
         <div className='col-3 mb-3'>
@@ -47,6 +73,7 @@ const MovieCard = ({ movie }) => {
                 <h4 className="card-title"><strong>{movie.title}</strong></h4>
                 {/*<p className="card-text">{movie.overview}</p>*/}
                 <i className={favoriteList.includes(movie.id) ? "fas fa-star" : "far fa-star"} onClick={onFavClick} ></i>
+                <i className={watchListTmp.includes(movie.id) ? "fas fa-clock" : "far fa-clock"} onClick={onClockClick} ></i>
 
             </div>
         </div>

@@ -32,10 +32,10 @@ const Header = (props) => {
                         </Link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light">
+                        <Link to='/watchlist' class="nav-link waves-effect waves-light">
                             <i className="fas fa-clock"></i>
                             Watchlist
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>

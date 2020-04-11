@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext }from "react";
 
 
+import { GlobalContext } from "../../context/GlobalState";
 
 const Favorites = () => {
+    const { favorites } = useContext(GlobalContext);
+    console.log(favorites);
     return (
-        <h2>Favorites</h2>
+
+        <div>
+
+            {favorites.map((favorite) => (
+                <div key={favorite.id}>{favorite.text} </div>
+            ))}
+        </div>
     );
 };
 

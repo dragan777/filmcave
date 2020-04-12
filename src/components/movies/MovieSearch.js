@@ -12,6 +12,9 @@ const MovieSearch = (props) => {
     const [filtered, setFilterd] = useState([]);
     const [query, setQuery] = useState("");
     const [tmpQuery, setTmpQuery] = useState("");
+
+
+
     useEffect(() => {
         if (query) {
             const fetchData = async () => {
@@ -68,11 +71,16 @@ const MovieSearch = (props) => {
                 </div>
             </div>
             <hr/>
-            <div className='container'>
+
+            <div className='container-fluid'>
                 <div className='row'>
-                    {data.map((movie, i) => (
-                            <MovieCard movie={movie} key={i}/>
+                    {data.map((movie, i) => {
+                        return (
+
+                            <MovieCard movie={movie} key={i} genres = {props.genres}/>
+
                         )
+                        }
                     )
                     }
                     {handleNoResult()}

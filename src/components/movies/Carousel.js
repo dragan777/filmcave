@@ -16,7 +16,7 @@ const Carousel = (props) => {
                         if(item.backdrop_path){
                         return (
 
-                            <MDBCarouselItem itemId={id}>
+                            <MDBCarouselItem itemId={id} key={id}>
                                 <MDBView>
                                     <img
                                         className="d-block w-100"

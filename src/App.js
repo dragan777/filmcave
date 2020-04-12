@@ -12,6 +12,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import Trending from "./components/movies/Trending";
 
 function App() {
     return (
@@ -32,6 +33,7 @@ function App() {
                     </Switch>
                 </div>
             </Router>
+            <Trending/>
 
 
         </GlobalProvider>

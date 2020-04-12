@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import MovieSearch from "./components/movies/MovieSearch";
 import Favorites from "./components/movies/Favorites";
 import WatchList from "./components/movies/WatchList";
@@ -17,9 +18,10 @@ import Trending from "./components/movies/Trending";
 function App() {
     return (
         <GlobalProvider>
+
             <Router>
-                <div className="App">
-                    <Header/>
+
+                <Header/>
                     <Switch>
                         <Route path="/favorites">
                             <Favorites/>
@@ -31,9 +33,10 @@ function App() {
                             <MovieSearch/>
                         </Route>
                     </Switch>
-                </div>
+
             </Router>
             <Trending/>
+            <Footer/>
 
 
         </GlobalProvider>

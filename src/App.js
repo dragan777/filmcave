@@ -9,7 +9,9 @@ import {GlobalProvider} from "./context/GlobalState";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Trending from "./components/movies/Trending";
 import axios from "axios/index";
-
+import PrivateRoute from "./components/PrivateRoute";
+import {useAuth0} from "./react-auth0-spa";
+import Profile from "./components/Profile";
 function App() {
     const API_KEY = process.env.REACT_APP_THEMOVIEDB_API_KEY;
     const [genres ,setGenres] = useState([]);
@@ -28,7 +30,11 @@ function App() {
 
     }, []);
 
+    const { loading } = useAuth0();
 
+    if (loading) {
+        return <div>Loading...</div>;
+    }
     return (
         <GlobalProvider>
 
@@ -36,6 +42,8 @@ function App() {
 
                 <Header/>
                     <Switch>
+                        <PrivateRoute path="/profile" component={Profile} />
+
                         <Route path="/favorites">
                             <Favorites  genres={genres}/>
                         </Route>
